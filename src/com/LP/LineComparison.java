@@ -7,13 +7,13 @@ class LineComparison {
 	int x1, y1, x2, y2;
 	int ans;
 
-	void welcome()// method to print welcome message
+	void welcome()// method to print welcome msg.
 	{
 		System.out.println("Welcome to empwage computation");
 	}
 
 	public Double calculate()
-	// use_case 1 (method to calculate length of line using Cartesian system)
+	// use_case 1 (method to calulate length of line using cartetion system)
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter x1, for line : ");
@@ -33,18 +33,27 @@ class LineComparison {
 		LineComparison line1 = new LineComparison();
 		line1.welcome();
 		System.out.println("coordinates of line 1 are");
-		Double length1 = line1.calculate();// calculate length of first line
+		Double length1 = line1.calculate();// calulate length of first line
 
 		System.out.println("coordinates of line 2 are");
 		LineComparison line2 = new LineComparison();
-		Double length2 = line2.calculate();// calculate length of second line
+		Double length2 = line2.calculate();// calulate length of second line
 		boolean a = length1.equals(length2);
-		System.out.println("" + a);// UseCase 2 check the equality of two line
+		System.out.println("" + length1.equals(length2));// usecase 2 check the equality of two line
 		if (a == true)
 			System.out.println("Two lines are equal");
 		else {
 			System.out.println("Two lines are  not equal");
 		}
-	}
+		int b = length1.compareTo(length2);// uc_3 comparison of two line
+		System.out.println(length1.compareTo(length2));
+		if (b == 0)
+			System.out.println("Two lines are equal");
+		else if (b == -1)
+			System.out.println("first line is greater than second line");
+		else if (b == 1) {
+			System.out.println("second line is greater than first line");
+		}
 
+	}
 }
