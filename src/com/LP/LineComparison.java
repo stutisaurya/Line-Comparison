@@ -3,17 +3,15 @@ package com.LP;
 import java.util.Scanner;
 
 class LineComparison {
-	// variables
+
 	int x1, y1, x2, y2;
 	int ans = 0;
 
-	void welcome()// method to print welcome msg.
-	{
+	void welcome() {
 		System.out.println("Welcome to empwage computation");
 	}
 
-	void calculate() // method to calulate length of line using cartetion system
-	{
+	void calculate() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter x1, for line : ");
 		int x1 = sc.nextInt();
@@ -33,10 +31,6 @@ class LineComparison {
 		line1.welcome();
 		System.out.println("coordinates of line 1 are");
 		line1.calculate();
-
-		System.out.println("coordinates of line 2 are");
-		LineComparison line2 = new LineComparison();
-		line2.calculate();
 
 	}
 
