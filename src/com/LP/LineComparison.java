@@ -2,58 +2,58 @@ package com.LP;
 
 import java.util.Scanner;
 
-class LineComparison {
-	// variables
-	int x1, y1, x2, y2;
-	int ans;
-
-	void welcome()// method to print welcome msg.
-	{
-		System.out.println("Welcome to empwage computation");
-	}
-
-	public Double calculate()
-	// use_case 1 (method to calulate length of line using cartetion system)
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter x1, for line : ");
-		int x1 = sc.nextInt();
-		System.out.print("Enter y1, for line1 : ");
-		int y1 = sc.nextInt();
-		System.out.print("Enter x2, for line1 : ");
-		int x2 = sc.nextInt();
-		System.out.print("Enter y2, for line1 : ");
-		int y2 = sc.nextInt();
-		Double ans = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-		System.out.println("length is" + ans);
-		return ans;
-	}
-
+public class LineComparison {
 	public static void main(String args[]) {
-		LineComparison line1 = new LineComparison();
-		line1.welcome();
-		System.out.println("coordinates of line 1 are");
-		Double length1 = line1.calculate();// calulate length of first line
+		System.out.println("Welcome to Line Comparison Computation Program:");
 
-		System.out.println("coordinates of line 2 are");
-		LineComparison line2 = new LineComparison();
-		Double length2 = line2.calculate();// calulate length of second line
-		boolean a = length1.equals(length2);
-		System.out.println("" + length1.equals(length2));// usecase 2 check the equality of two line
-		if (a == true)
-			System.out.println("Two lines are equal");
-		else {
-			System.out.println("Two lines are  not equal");
-		}
-		int b = length1.compareTo(length2);// uc_3 comparison of two line
-		System.out.println(length1.compareTo(length2));
-		if (b == 0)
-			System.out.println("Two lines are equal");
-		else if (b == -1)
-			System.out.println("first line is greater than second line");
-		else if (b == 1) {
-			System.out.println("second line is greater than first line");
-		}
+		Scanner scan = new Scanner(System.in);
 
+		// Input values from user for Line A and compute the length of Line A
+		float[] input1 = inputValues(scan);
+		System.out.println("The 2 points of the line A are: (" + input1[0] + "," + input1[1] + ") and (" + input1[2]
+				+ "," + input1[3] + ")");
+		double lengthLineA = computeLength(input1);
+
+		// Input values from user for Line B and compute the length of Line B
+		float[] input2 = inputValues(scan);
+		System.out.println("The 2 points of the line B are: (" + input2[0] + "," + input2[1] + ") and (" + input2[2]
+				+ "," + input2[3] + ")");
+		double lengthLineB = computeLength(input2);
+
+		// Print the lengths of Line A and Line B
+		System.out.println("Length of the line A is : " + lengthLineA + " units.");
+		System.out.println("Length of the line B is : " + lengthLineB + " units.");
+
+		// Compare the lengths of line A and line B
+		compareLength(lengthLineA, lengthLineB);
 	}
+
+	private static float[] inputValues(Scanner input) {
+		System.out.print("Enter the value of (x1,y1) and (x2,y2): ");
+		float x1 = input.nextFloat();
+		float y1 = input.nextFloat();
+		float x2 = input.nextFloat();
+		float y2 = input.nextFloat();
+
+		return new float[] { x1, y1, x2, y2 };
+	}
+
+	private static double computeLength(float[] input) {
+		double lengthLine = Math.sqrt(Math.pow(input[2] - input[0], 2) + Math.pow(input[3] - input[1], 2));
+
+		return lengthLine;
+	}
+
+	private static void compareLength(double lengthLineA, double lengthLineB) {
+		String lineA = String.valueOf(lengthLineA);
+		String lineB = String.valueOf(lengthLineB);
+
+		if (lineA.compareTo(lineB) == 0)
+			System.out.println("Line A and Line B are equal");
+		else if (lineA.compareTo(lineB) > 0)
+			System.out.println("Line A is greater than Line B");
+		else if (lineB.compareTo(lineA) > 0)
+			System.out.println("Line B is greater than Line A");
+	}
+
 }
